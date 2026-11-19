@@ -53,7 +53,7 @@ export const FAQ: FaqCategory[] = [
     items: [
       {
         q: 'What is Hydroxyapatite?',
-        a: 'Hydroxyapatite is a mineral that makes up most of natural tooth enamel. PureDent uses a bio-compatible form to help deliver minerals to tooth surfaces and support enamel integrity.',
+        a: 'A biomimetic mineral that makes up over 90% of natural tooth enamel. It helps remineralise, repair and strengthen teeth at the surface level.',
       },
       {
         q: 'Why does PureDent use Xylitol?',
@@ -71,15 +71,15 @@ export const FAQ: FaqCategory[] = [
     items: [
       {
         q: 'Why is PureDent fluoride-free?',
-        a: 'Many families are looking for alternatives to fluoride toothpaste. PureDent offers one built around Hydroxyapatite, Xylitol and essential oils, for people who prefer a fluoride-free routine.',
+        a: 'At PureDent, we believe protection should never come with compromise. Instead of relying on fluoride, we use advanced, clinically studied alternatives — Hydroxyapatite, Xylitol and Therapeutic Actives — that support enamel strength and oral health without unnecessary exposure.',
       },
       {
-        q: 'Is fluoride bad for me?',
-        a: 'Fluoride is widely recommended by dental authorities for cavity prevention. PureDent does not suggest otherwise — it offers a fluoride-free option for people who prefer one. Your dentist can advise what suits your teeth best.',
+        q: 'Why are people re-evaluating fluoride?',
+        a: 'Growing global awareness has led many consumers and health professionals to re-evaluate fluoride’s long-term, everyday use — especially for children and families — including concerns about total exposure from water, food and toothpaste. PureDent uses clinically studied alternatives that support enamel strength without unnecessary exposure.',
       },
       {
         q: 'Can I switch from a fluoride toothpaste to PureDent?',
-        a: 'Many people do. If you have a history of cavities, enamel problems or a specific treatment plan, speak with your dentist before changing your routine.',
+        a: 'Yes. PureDent is formulated for daily, long-term use by adults and children, so the whole family can switch with confidence. Keep up your regular dental check-ups as part of a complete routine.',
       },
     ],
   },

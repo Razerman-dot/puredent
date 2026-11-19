@@ -401,18 +401,18 @@ function FluorideFree() {
         <div className="px-5 py-20 sm:px-12 lg:px-16 lg:py-28 xl:px-24">
           <Reveal>
             <Eyebrow tone="sky">Why Fluoride-Free?</Eyebrow>
-            <h2 className="display-2 mt-6">A considered alternative, explained honestly.</h2>
+            <h2 className="display-2 mt-6">All you may know about fluoride may not be correct.</h2>
             <p className="mt-7 text-lg leading-relaxed text-white/75">
-              Fluoride has been used in oral care for decades and is widely recommended for cavity prevention. Many families today are also looking for
-              alternatives. PureDent offers one — built around Hydroxyapatite, Xylitol and essential oils.
+              Fluoride has been used in oral care for decades. Today, growing global awareness has led many consumers and health professionals to
+              re-evaluate its long-term, everyday use — especially for children and families. PureDent chose a different path.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <dl className="mt-10 grid gap-px bg-white/10 sm:grid-cols-3">
               {[
-                ['We respect the science', 'We never claim fluoride is harmful for everyone.'],
-                ['We offer a choice', 'A fluoride-free routine for those who prefer one.'],
-                ['We value your dentist', 'Professional advice always comes first.'],
+                ['Hydroxyapatite', 'Over 90% of natural enamel — helps remineralise and repair.'],
+                ['Xylitol', 'A natural cavity-fighting agent that reduces harmful bacteria.'],
+                ['Therapeutic Actives', 'Freshen breath and support gum health, gently.'],
               ].map(([t, d]) => (
                 <div key={t} className="bg-navy-deep p-5 sm:pt-0 sm:pl-0 sm:first:pl-0 [&:not(:first-child)]:sm:pl-5">
                   <dt className="font-display text-[15px] font-bold">{t}</dt>

@@ -33,9 +33,9 @@ Deliberately **left out** because the official site contradicts itself or gives 
 
 1. **Advanced 3X pack size** — listed as both 100g and 130g. Price (₦3,500) is shown; size is not.
 2. **Hour-based claims** — "24-hour", "12-hour" and "2-hour" all appear for the same product.
-3. **"97%" / "over 90%" hydroxyapatite-in-enamel figure** — two different numbers.
+3. **Hydroxyapatite-in-enamel figure** — the site uses "over 90%" (from the official Why Fluoride-Free page); the official FAQ says 97%.
 4. **Essential oils** — the science page says Clove + Tea Tree; the FAQ says Clove + Peppermint + Spearmint. The site shows Clove + Tea Tree (product page wording).
-5. **Clinical claims** ("as effective as fluoride", "no risk of fluorosis", "used in Japan for decades") — no citations on the site, so not used.
+5. **Fluoride messaging** follows PureDent's own Why Fluoride-Free copy ("re-evaluate its long-term, everyday use", "clinically studied alternatives… without unnecessary exposure"). Stronger claims ("as effective as fluoride", "no risk of fluorosis") are not used. Keep supporting documentation on file for regulatory review.
 6. **Kids flavour** — "Strawberry & Mint" vs "Mild Mint & Fruity"; the product-page wording is used.
 7. **Phone number / street address** — none published.
 8. **Benin Republic retailers** — none published, so Benin and other markets get an enquiry form.

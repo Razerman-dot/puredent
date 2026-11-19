@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Info, Stethoscope } from 'lucide-react'
+import { Stethoscope } from 'lucide-react'
 import { Seo } from '../components/Seo'
 import { Img } from '../components/Img'
 import { ButtonLink, PageHero, Reveal } from '../components/ui'
@@ -7,13 +7,11 @@ import { EnamelSurface } from '../components/Diagrams'
 import { IMG } from '../lib/img'
 
 const CHAPTERS = [
-  { id: 'what-is-fluoride', title: 'What fluoride is' },
-  { id: 'conventional-role', title: 'Its role in conventional oral care' },
-  { id: 'why-alternatives', title: 'Why some people explore alternatives' },
-  { id: 'philosophy', title: 'PureDent’s formulation philosophy' },
-  { id: 'hydroxyapatite', title: 'Hydroxyapatite and enamel support' },
-  { id: 'xylitol', title: 'The role of xylitol' },
-  { id: 'everyday', title: 'Everyday oral-care practices' },
+  { id: 'understanding-fluoride', title: 'Understanding fluoride' },
+  { id: 'different-path', title: 'Why PureDent chose a different path' },
+  { id: 'what-we-use', title: 'What we use instead' },
+  { id: 'safe-everyday', title: 'Safe for everyday use' },
+  { id: 'everyday', title: 'Everyday oral-care habits' },
 ]
 
 export default function WhyFluorideFree() {
@@ -21,13 +19,13 @@ export default function WhyFluorideFree() {
     <>
       <Seo
         title="Why Fluoride-Free?"
-        description="A balanced guide to fluoride, why some families choose fluoride-free toothpaste, and how PureDent uses Hydroxyapatite and Xylitol instead."
+        description="All you may know about fluoride may not be correct. Discover why PureDent chose a different path, with Hydroxyapatite, Xylitol and Therapeutic Actives."
         image={IMG.scientist}
       />
       <PageHero
-        eyebrow="Why Fluoride-Free?"
-        title="An informed choice, clearly explained."
-        lede="Fluoride has a long, well-established place in oral care. Fluoride-free toothpaste is an alternative some people prefer. Here is what each means — and how PureDent approaches it."
+        eyebrow="Why Fluoride-Free? · The New Standard"
+        title="All you may know about fluoride may not be correct."
+        lede="Growing global awareness has led many consumers and health professionals to re-evaluate fluoride’s long-term, everyday use — especially for children and families. Here is why PureDent chose a different path."
         image={IMG.scientist}
         imageAlt="A PureDent scientist researching in a laboratory"
       />
@@ -52,84 +50,70 @@ export default function WhyFluorideFree() {
           </aside>
 
           <article className="prose-pd lg:col-span-8 lg:col-start-5">
-            <Chapter n={1} id="what-is-fluoride" title="What fluoride is">
+            <Chapter n={1} id="understanding-fluoride" title="Understanding fluoride">
               <p>
-                Fluoride is a naturally occurring mineral found in soil, water and many foods. In oral care it is used in toothpastes, mouthwashes and, in
-                some countries, community water supplies.
+                Fluoride has been used in oral care for decades to help prevent cavities. However, growing global awareness has led many consumers and
+                health professionals to re-evaluate its long-term, everyday use — especially for children and families.
               </p>
               <figure className="my-10 grid items-center gap-6 sm:grid-cols-[220px_1fr]">
                 <Img src={IMG.understandingFluoride} alt="Illustration of a fluoride ion, labelled F minus" sizes="220px" widths={[384, 640]} className="aspect-square w-full max-w-[220px] object-cover" />
                 <figcaption className="text-[15px] leading-relaxed text-slate">
-                  In toothpaste, fluoride is present as fluoride ions, usually from compounds such as sodium fluoride or sodium monofluorophosphate.
+                  Fluoride reaches us from many sources at once — water, food and toothpaste. That is why so many families are now asking how much
+                  everyday exposure they really need.
                 </figcaption>
               </figure>
             </Chapter>
 
-            <Chapter n={2} id="conventional-role" title="Its role in conventional oral care">
+            <Chapter n={2} id="different-path" title="Why PureDent chose a different path">
               <p>
-                Fluoride has been used in oral care for decades to help prevent cavities, and it is widely recommended by dental and public-health
-                authorities. It works by helping enamel resist acid and supporting the remineralisation of early weak spots.
+                At PureDent, we believe protection should never come with compromise. Instead of relying on fluoride, we use advanced, clinically studied
+                alternatives that support enamel strength and oral health, <strong>without unnecessary exposure</strong>.
               </p>
-              <Callout icon="info">
-                PureDent does not claim that fluoride is harmful for everyone, or that fluoride-free toothpaste is medically superior for everyone. Different
-                people have different needs.
-              </Callout>
+              <blockquote className="my-8 border-l-2 border-brand-red pl-6 font-display text-xl leading-snug font-semibold text-navy">
+                “We did not remove fluoride to follow a trend. We replaced it with something smarter.”
+              </blockquote>
             </Chapter>
 
-            <Chapter n={3} id="why-alternatives" title="Why some people explore fluoride-free alternatives">
-              <p>Growing global awareness has led many families to look at the ingredients in their daily routine more closely. Common reasons include:</p>
-              <ul>
-                <li>Parents of young children who may swallow toothpaste while learning to brush.</li>
-                <li>People who want to understand and manage their total fluoride intake from water, food and toothpaste.</li>
-                <li>Consumers who prefer formulations built on alternative, bio-active ingredients.</li>
-              </ul>
-              <p>These are personal choices. A dentist can help you weigh them against your own oral-health history.</p>
-            </Chapter>
-
-            <Chapter n={4} id="philosophy" title="PureDent’s formulation philosophy">
+            <Chapter n={3} id="what-we-use" title="What we use instead">
+              <h3>Hydroxyapatite</h3>
               <p>
-                PureDent did not remove fluoride to follow a trend — it set out to build a thoughtful alternative. Instead of relying on fluoride, PureDent
-                formulations draw on its Advanced Natural Defence System: <strong>Hydroxyapatite</strong>, <strong>Xylitol</strong> and{' '}
-                <strong>Therapeutic Essential Oils</strong>, chosen for daily, long-term use by adults and children alike.
+                A biomimetic mineral that makes up over 90% of natural tooth enamel. It helps remineralise, repair and strengthen teeth at the surface
+                level.
               </p>
-            </Chapter>
-
-            <Chapter n={5} id="hydroxyapatite" title="Hydroxyapatite and enamel support">
-              <p>
-                Hydroxyapatite is the mineral that makes up most of natural tooth enamel. It is biomimetic — it resembles the material teeth are already
-                built from. PureDent uses a bio-compatible form to help deliver minerals to tooth surfaces, fill microscopic imperfections and support
-                enamel integrity.
-              </p>
-              <figure className="not-prose my-10 grid items-center gap-8 bg-ice p-6 sm:grid-cols-2 sm:p-8">
+              <figure className="not-prose my-8 grid items-center gap-8 bg-ice p-6 sm:grid-cols-2 sm:p-8">
                 <EnamelSurface className="w-full" />
                 <figcaption className="text-[15px] leading-relaxed text-slate">
-                  <strong className="font-display text-navy">How it’s designed to work.</strong> Minerals in the formulation are intended to settle into
-                  tiny surface gaps, supporting a smoother, more resilient enamel surface over time.
+                  <strong className="font-display text-navy">Repair at the surface.</strong> Hydroxyapatite settles into tiny surface gaps, restoring a
+                  smoother, more resilient enamel surface.
                 </figcaption>
               </figure>
+              <h3>Xylitol</h3>
+              <p>A natural cavity-fighting agent that reduces harmful bacteria and supports a healthier oral environment.</p>
+              <h3>Therapeutic Actives</h3>
+              <p>Carefully selected ingredients that freshen breath, support gum health and protect the mouth — gently and effectively.</p>
+              <Img src={IMG.openTube} alt="An open PureDent tube beside a molecular model and a toothbrush" sizes="(min-width:1024px) 640px, 100vw" className="mt-8 aspect-[16/10] w-full object-cover" />
             </Chapter>
 
-            <Chapter n={6} id="xylitol" title="The role of xylitol">
-              <p>
-                Xylitol is a naturally derived sweetener. The bacteria associated with tooth decay cannot use it the way they use sugar, so it helps
-                disrupt their growth and supports a more balanced pH in the mouth. It also gives PureDent a pleasant, mild sweetness — without sugar.
-              </p>
+            <Chapter n={4} id="safe-everyday" title="Safe for everyday use">
+              <p>PureDent is formulated for:</p>
+              <ul>
+                <li>Daily, long-term use</li>
+                <li>Adults and children</li>
+                <li>Families seeking modern, science-backed oral care</li>
+              </ul>
             </Chapter>
 
-            <Chapter n={7} id="everyday" title="Everyday oral-care practices">
-              <p>Whatever toothpaste you choose, the fundamentals matter most:</p>
+            <Chapter n={5} id="everyday" title="Everyday oral-care habits">
+              <p>Make every brush count with a few simple habits:</p>
               <Img src={IMG.differentDirection} alt="A model tooth surrounded by toothbrushes, a floss pick and dental floss on a blue background" sizes="(min-width:1024px) 640px, 100vw" className="mb-8 aspect-[16/9] w-full object-cover" />
               <ul>
                 <li>Brush for about two minutes, twice a day — especially before bed.</li>
                 <li>Clean between your teeth daily with floss or interdental brushes.</li>
                 <li>Limit how often you have sugary snacks and drinks.</li>
-                <li>Supervise young children’s brushing.</li>
-                <li>Visit your dentist regularly.</li>
+                <li>Brush alongside young children and help them build the habit.</li>
+                <li>Keep up regular dental check-ups.</li>
               </ul>
-              <Callout icon="dentist">
-                Talk to your dentist before changing your oral-care routine — particularly if you have a history of cavities, enamel concerns, or are
-                choosing products for young children.
-              </Callout>
+              <Callout>Pair PureDent with regular dental check-ups for complete, confident oral care.</Callout>
             </Chapter>
           </article>
         </div>
@@ -141,15 +125,12 @@ export default function WhyFluorideFree() {
             <Img src={IMG.coupleBrushing} alt="A couple brushing their teeth and laughing together" sizes="(min-width:1024px) 50vw, 100vw" className="absolute inset-0 h-full w-full object-cover object-top" />
           </div>
           <Reveal className="px-5 py-20 sm:px-12 lg:px-16 lg:py-28">
-            <p className="text-xs font-semibold tracking-[0.2em] text-ocean uppercase">Safe for everyday use</p>
-            <h2 className="display-3 mt-4 text-navy">Made for daily, long-term family routines.</h2>
-            <ul className="mt-8 divide-y divide-line border-y border-line">
-              {['Daily long-term use', 'Adults and children', 'Families seeking modern, science-led oral care'].map((x) => (
-                <li key={x} className="py-4 font-display text-lg font-semibold text-navy">
-                  {x}
-                </li>
-              ))}
-            </ul>
+            <p className="text-xs font-semibold tracking-[0.2em] text-ocean uppercase">Make the switch</p>
+            <h2 className="display-3 mt-4 text-navy">Protection without compromise, for the whole family.</h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate">
+              Advanced fluoride-free care for adults, shared households and children aged 3–6 — built around Hydroxyapatite, Xylitol and Therapeutic
+              Actives.
+            </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink to="/products" variant="red">
                 Explore Products
@@ -175,8 +156,8 @@ function Chapter({ n, id, title, children }: { n: number; id: string; title: str
   )
 }
 
-function Callout({ icon, children }: { icon: 'info' | 'dentist'; children: ReactNode }) {
-  const Icon = icon === 'info' ? Info : Stethoscope
+function Callout({ children }: { children: ReactNode }) {
+  const Icon = Stethoscope
   return (
     <aside className="my-8 flex gap-4 border-l-2 border-ocean bg-ice p-5 sm:p-6">
       <Icon className="mt-0.5 size-5 shrink-0 text-ocean" aria-hidden />
