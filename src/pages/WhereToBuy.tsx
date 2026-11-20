@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { MapPin, ShoppingBag, ArrowUpRight, Mail, Clock } from 'lucide-react'
 import { Seo } from '../components/Seo'
 import { Img } from '../components/Img'
 import { ButtonLink, Eyebrow, Reveal } from '../components/ui'
-import { PurchaseEnquiryForm } from '../components/forms/PurchaseEnquiryForm'
+import { OrderForm } from '../components/forms/OrderForm'
+import { CurrencyToggle, formatPrice, useCurrency } from '../lib/currency'
 import { MARKETS, ONLINE_RETAILERS, STORES, FULL_DIRECTORY_URL } from '../data/stockists'
 import { PRODUCTS, PRICE_NOTE } from '../data/products'
 import { SITE } from '../data/site'
@@ -12,12 +14,19 @@ import { IMG } from '../lib/img'
 export default function WhereToBuy() {
   const [code, setCode] = useState('NG')
   const market = MARKETS.find((m) => m.code === code)!
+  const [params] = useSearchParams()
+  const { currency, setCurrency } = useCurrency()
+  const chooseMarket = (c: string) => {
+    setCode(c)
+    if (c === 'NG') setCurrency('NGN')
+    if (c === 'BJ') setCurrency('XOF')
+  }
 
   return (
     <>
       <Seo
         title="Where to Buy"
-        description="Buy PureDent online from Jumia and Konga or in stores across Nigeria. Outside Nigeria? Send a purchasing enquiry for Benin Republic and other markets."
+        description="Buy PureDent online from Jumia and Konga or in stores across Nigeria. Order online in Naira or CFA for Nigeria and Benin Republic."
         image={IMG.shelves}
       />
 
@@ -40,7 +49,7 @@ export default function WhereToBuy() {
                 id={`tab-${m.code}`}
                 aria-selected={m.code === code}
                 aria-controls="market-panel"
-                onClick={() => setCode(m.code)}
+                onClick={() => chooseMarket(m.code)}
                 className={`flex items-center gap-3 border px-5 py-3 font-display text-sm font-bold transition-colors ${
                   m.code === code ? 'border-white bg-white text-navy' : 'border-white/25 text-white hover:border-white'
                 }`}
@@ -59,7 +68,7 @@ export default function WhereToBuy() {
             <p className="font-display font-bold text-navy">
               {market.name}
               <span className={`ml-3 px-2 py-1 text-[11px] tracking-wider uppercase ${market.status === 'available' ? 'bg-ocean text-white' : 'bg-white text-slate'}`}>
-                {market.status === 'available' ? 'Available now' : 'Enquire for availability'}
+                {market.status === 'available' ? 'Available now' : 'Order online'}
               </span>
             </p>
             <p className="text-[15px] text-slate">{market.note}</p>
@@ -140,7 +149,10 @@ export default function WhereToBuy() {
             {/* Product availability */}
             <section className="bg-white py-16 lg:py-24">
               <div className="container-x">
-                <h2 className="display-3 text-navy">Available products</h2>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <h2 className="display-3 text-navy">Available products</h2>
+                  <CurrencyToggle />
+                </div>
                 <ul className="mt-10 grid gap-px bg-line sm:grid-cols-3">
                   {PRODUCTS.map((p) => (
                     <li key={p.slug} className="flex items-center gap-5 bg-white p-6">
@@ -148,7 +160,7 @@ export default function WhereToBuy() {
                       <div>
                         <p className="font-display font-bold text-navy">{p.shortName}</p>
                         <p className="mt-1 text-sm text-slate">
-                          {p.price}
+                          {formatPrice(p.prices[currency], currency)}
                           {p.size ? ` · ${p.size}` : ''}
                         </p>
                       </div>
@@ -162,16 +174,22 @@ export default function WhereToBuy() {
         )}
       </div>
 
-      {/* Enquiry */}
-      <section id="enquiry" className="scroll-mt-20 bg-ice py-16 lg:py-24">
+      {/* Order */}
+      <section id="order" className="scroll-mt-20 bg-ice py-16 lg:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
-            <p className="text-xs font-semibold tracking-[0.2em] text-ocean uppercase">Purchasing enquiries</p>
-            <h2 className="display-3 mt-4 text-navy">
-              {market.status === 'available' ? 'Retailer, distributor or bulk buyer?' : `Buying PureDent in ${market.code === 'OTHER' ? 'your country' : market.name}?`}
-            </h2>
+            <p className="text-xs font-semibold tracking-[0.2em] text-ocean uppercase">Order online</p>
+            <h2 className="display-3 mt-4 text-navy">Place your order.</h2>
             <p className="mt-4 text-slate">
-              Tell us where you are and what you need. Our team supports retailers with visibility, sampling and point-of-sale materials.
+              Choose your toothpaste, quantity and currency, then add your delivery details. When you submit, WhatsApp opens with your order ready
+              to send to the PureDent team.
+            </p>
+            <p className="mt-4 text-[15px] text-slate">
+              Retailer or distributor?{' '}
+              <Link to="/contact" className="font-semibold text-navy underline underline-offset-4 hover:text-brand-red">
+                Contact our team
+              </Link>
+              .
             </p>
             <ul className="mt-8 space-y-3 text-[15px] text-slate">
               <li className="flex gap-3">
@@ -187,7 +205,7 @@ export default function WhereToBuy() {
             </ul>
           </Reveal>
           <div className="bg-white p-6 sm:p-10 lg:col-span-8">
-            <PurchaseEnquiryForm country={market.code === 'OTHER' ? '' : market.name} />
+            <OrderForm country={market.code === 'OTHER' ? '' : market.name} initialProduct={params.get('product') ?? ''} />
           </div>
         </div>
       </section>

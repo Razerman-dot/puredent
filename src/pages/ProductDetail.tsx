@@ -9,6 +9,7 @@ import { ButtonLink, Reveal } from '../components/ui'
 import { getProduct, PRODUCTS, PRICE_NOTE, type Product } from '../data/products'
 import { SITE } from '../data/site'
 import NotFound from './NotFound'
+import { CurrencyToggle, formatPrice, useCurrency } from '../lib/currency'
 
 /** Per-product visual identity within the shared brand system. */
 const THEME = {
@@ -44,6 +45,7 @@ export default function ProductDetail() {
 
 function ProductView({ p }: { p: Product }) {
   const t = THEME[p.theme]
+  const { currency } = useCurrency()
   const related = PRODUCTS.filter((x) => x.slug !== p.slug)
 
   return (
@@ -104,10 +106,11 @@ function ProductView({ p }: { p: Product }) {
                 ))}
               </ul>
 
-              {p.price && (
+              {(
                 <div className="mt-8">
-                  <p className="flex flex-wrap items-baseline gap-x-3">
-                    <span className={`font-display text-3xl font-extrabold ${t.dark ? '' : 'text-navy'}`}>{p.price}</span>
+                  <CurrencyToggle tone={t.dark ? 'dark' : 'light'} className="mb-4" />
+                  <p className="flex flex-wrap items-baseline gap-x-3" aria-live="polite">
+                    <span className={`font-display text-3xl font-extrabold ${t.dark ? '' : 'text-navy'}`}>{formatPrice(p.prices[currency], currency)}</span>
                     {p.size && <span className={t.dark ? 'text-white/70' : 'text-slate'}>{p.size}</span>}
                     {p.ageGuidance && (
                       <span className={`px-2 py-1 font-display text-xs font-bold tracking-wider uppercase ${t.dark ? 'bg-white/10' : 'bg-white text-navy'}`}>
@@ -120,8 +123,8 @@ function ProductView({ p }: { p: Product }) {
               )}
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink to="/where-to-buy" variant="red">
-                  Where to Buy
+                <ButtonLink to={`/where-to-buy?product=${p.slug}#order`} variant="red">
+                  Order Now
                 </ButtonLink>
                 <ButtonLink to="/contact" variant={t.dark ? 'outline-light' : 'outline-dark'}>
                   Ask a Question
@@ -239,8 +242,8 @@ function ProductView({ p }: { p: Product }) {
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Find {p.shortName} near you.</h2>
             <p className="mt-3 text-white/70">Available online and in stores across Nigeria.</p>
           </div>
-          <ButtonLink to="/where-to-buy" variant="red">
-            Where to Buy
+          <ButtonLink to={`/where-to-buy?product=${p.slug}#order`} variant="red">
+            Order Now
           </ButtonLink>
         </div>
       </section>

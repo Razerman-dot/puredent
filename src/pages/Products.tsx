@@ -3,6 +3,7 @@ import { Img } from '../components/Img'
 import { ButtonLink, Eyebrow, Reveal, TextLink } from '../components/ui'
 import { IMG } from '../lib/img'
 import { PRODUCTS, PRICE_NOTE } from '../data/products'
+import { CurrencyToggle, formatPrice, useCurrency } from '../lib/currency'
 
 const PANEL: Record<string, string> = {
   advanced: 'bg-white',
@@ -11,6 +12,7 @@ const PANEL: Record<string, string> = {
 }
 
 export default function Products() {
+  const { currency } = useCurrency()
   return (
     <>
       <Seo
@@ -33,6 +35,10 @@ export default function Products() {
                 </a>
               ))}
             </nav>
+            <div className="mt-8 flex items-center gap-4">
+              <span className="text-xs font-semibold tracking-[0.2em] text-slate uppercase">Show prices in</span>
+              <CurrencyToggle />
+            </div>
           </Reveal>
           <Reveal delay={0.1} className="relative lg:col-span-7">
             <div className="aspect-[16/10] overflow-hidden">
@@ -68,9 +74,9 @@ export default function Products() {
                     </li>
                   ))}
                 </ul>
-                {p.price && (
-                  <p className={`mt-6 text-sm ${dark ? 'text-white/60' : 'text-slate'}`}>
-                    <span className={`font-display text-xl font-bold ${dark ? 'text-white' : 'text-navy'}`}>{p.price}</span>
+                {(
+                  <p className={`mt-6 text-sm ${dark ? 'text-white/60' : 'text-slate'}`} aria-live="polite">
+                    <span className={`font-display text-xl font-bold ${dark ? 'text-white' : 'text-navy'}`}>{formatPrice(p.prices[currency], currency)}</span>
                     {p.size && <span> · {p.size}</span>}
                     {p.ageGuidance && <span> · {p.ageGuidance}</span>}
                     <span className="mt-1 block text-xs">{PRICE_NOTE}</span>
@@ -80,8 +86,8 @@ export default function Products() {
                   <ButtonLink to={`/products/${p.slug}`} variant={dark ? 'white' : 'red'}>
                     View Product
                   </ButtonLink>
-                  <ButtonLink to="/where-to-buy" variant={dark ? 'outline-light' : 'outline-dark'}>
-                    Where to Buy
+                  <ButtonLink to={`/where-to-buy?product=${p.slug}#order`} variant={dark ? 'outline-light' : 'outline-dark'}>
+                    Order Now
                   </ButtonLink>
                 </div>
               </Reveal>

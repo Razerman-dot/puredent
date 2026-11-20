@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { motion, MotionConfig } from 'framer-motion'
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { CurrencyProvider } from '../lib/currency'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -23,6 +24,7 @@ function PageFallback() {
 export function Layout() {
   const { pathname } = useLocation()
   return (
+    <CurrencyProvider>
     <MotionConfig reducedMotion="user">
       <ScrollManager />
       <Header />
@@ -35,5 +37,6 @@ export function Layout() {
       </main>
       <Footer />
     </MotionConfig>
+    </CurrencyProvider>
   )
 }

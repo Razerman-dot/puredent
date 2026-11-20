@@ -10,6 +10,8 @@ export const SITE = {
   email: 'customercare@puredent.co',
   hours: 'Monday – Friday, 09:00 – 17:00 (WAT)',
   primaryMarket: 'Nigeria',
+  /** Orders are sent here via WhatsApp click-to-chat (supplied by PureDent). */
+  whatsappOrders: 'https://wa.me/2348129029866',
 } as const
 
 export const SOCIAL = [

@@ -21,13 +21,13 @@ export const MARKETS: Market[] = [
     code: 'BJ',
     name: 'Benin Republic',
     status: 'enquire',
-    note: 'Retail details for Benin Republic are not yet published. Send an enquiry and our team will advise on availability.',
+    note: 'Order online below with prices in CFA — our team will confirm your order with you on WhatsApp.',
   },
   {
     code: 'OTHER',
     name: 'Other markets',
     status: 'enquire',
-    note: 'Tell us where you are and our team will advise on availability, distribution and shipping.',
+    note: 'Place an order below and our team will confirm availability in your country on WhatsApp.',
   },
 ]
 

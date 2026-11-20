@@ -88,7 +88,7 @@ export function TextArea(p: Base & { rows?: number; placeholder?: string }) {
   )
 }
 
-export function SelectField({ options, ...p }: Base & { options: string[] }) {
+export function SelectField({ options, ...p }: Base & { options: (string | { value: string; label: string })[] }) {
   return (
     <Wrap {...p}>
       <select
@@ -103,11 +103,14 @@ export function SelectField({ options, ...p }: Base & { options: string[] }) {
         className={`${inputCls(p.error, p.tone)} appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23102C50' stroke-width='1.5'/%3E%3C/svg%3E")] bg-[position:right_1rem_center] bg-no-repeat pr-10`}
       >
         <option value="">Select…</option>
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
+        {options.map((o) => {
+          const { value, label } = typeof o === 'string' ? { value: o, label: o } : o
+          return (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          )
+        })}
       </select>
     </Wrap>
   )

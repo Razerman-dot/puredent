@@ -70,20 +70,23 @@ export function Header() {
       >
         Skip to content
       </a>
-      <div className="container-x flex h-[72px] items-center justify-between gap-6 lg:h-20">
-        <Link to="/" aria-label="PureDent home" className="shrink-0">
-          <Logo tone={overDark ? 'white' : 'blue'} className="h-7 w-auto sm:h-8" />
-        </Link>
+      <div className="container-x flex h-[72px] items-center justify-between gap-6 lg:h-20 xl:gap-4 2xl:gap-6">
+        <div className="flex shrink-0 items-center gap-2.5">
+          <Link to="/" aria-label="PureDent home" className="shrink-0">
+            <Logo tone={overDark ? 'white' : 'blue'} className="h-7 w-auto sm:h-8 xl:h-7 2xl:h-8" />
+          </Link>
+          <BeninFlag />
+        </div>
 
         <nav aria-label="Main" className="hidden xl:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5 2xl:gap-1">
             {NAV.map((item) => (
               <li key={item.to}>
                 <NavLink
                   to={item.to}
                   end={item.to === '/'}
                   className={({ isActive }) =>
-                    `relative px-2.5 py-2 text-[13.5px] font-medium transition-colors after:absolute after:inset-x-2.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-brand-red after:transition-transform after:duration-300 ${
+                    `relative px-2 py-2 text-[13px] font-medium whitespace-nowrap transition-colors after:absolute after:inset-x-2 2xl:px-2.5 2xl:text-[13.5px] 2xl:after:inset-x-2.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-brand-red after:transition-transform after:duration-300 ${
                       isActive ? 'after:scale-x-100' : 'after:scale-x-0 hover:after:scale-x-100'
                     } ${overDark ? 'text-white/85 hover:text-white' : 'text-ink/80 hover:text-navy'} ${isActive ? (overDark ? 'text-white' : 'text-navy') : ''}`
                   }
@@ -96,7 +99,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <ButtonLink to="/products" variant="red" className="!hidden !px-5 !py-2.5 !text-[13.5px] sm:!inline-flex">
+          <ButtonLink to="/products" variant="red" className="!hidden !px-5 !py-2.5 !text-[13.5px] sm:!inline-flex xl:!px-4 2xl:!px-5">
             Explore Products
           </ButtonLink>
           <button
@@ -171,5 +174,17 @@ export function Header() {
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+/** Benin Republic national flag — drawn as SVG because Windows doesn't render flag emoji. */
+function BeninFlag() {
+  return (
+    <svg viewBox="0 0 30 20" role="img" aria-label="Benin Republic flag" className="h-[14px] w-[21px] shrink-0 rounded-[2px] shadow-[0_0_0_1px_rgba(16,44,80,0.15)] sm:h-4 sm:w-6">
+      <title>Benin Republic</title>
+      <rect width="30" height="20" fill="#E8112D" />
+      <rect width="30" height="10" fill="#FCD116" />
+      <rect width="12" height="20" fill="#008751" />
+    </svg>
   )
 }

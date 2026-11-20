@@ -21,7 +21,8 @@ export interface Product {
   benefitsTitle: string
   idealFor: string[]
   usage: string[]
-  price?: string
+  /** Selling prices set by PureDent — independent, never converted. */
+  prices: { NGN: number; XOF: number }
   size?: string
   ageGuidance?: string
   tube: string
@@ -59,7 +60,7 @@ export const PRODUCTS: Product[] = [
       'Families looking for premium daily protection',
     ],
     usage: USAGE_COMMON,
-    price: '₦3,500',
+    prices: { NGN: 6000, XOF: 2300 },
     tube: IMG.tubeAdvanced,
     gallery: [
       { src: IMG.splashAdvanced, alt: 'PureDent Advanced 3X tube surrounded by a water splash, clove buds and mineral crystals', fit: 'cover' },
@@ -116,7 +117,7 @@ export const PRODUCTS: Product[] = [
       'Anyone looking for everyday all-round protection',
     ],
     usage: USAGE_COMMON,
-    price: '₦1,500',
+    prices: { NGN: 4500, XOF: 1700 },
     size: '130g',
     tube: IMG.tubeComplete,
     gallery: [
@@ -167,7 +168,7 @@ export const PRODUCTS: Product[] = [
       ...USAGE_COMMON,
       'Brush with your child and supervise until they can brush well on their own — a habit dental professionals widely recommend.',
     ],
-    price: '₦1,200',
+    prices: { NGN: 3000, XOF: 1300 },
     size: '65g',
     ageGuidance: 'Ages 3–6',
     tube: IMG.tubeKids,
@@ -190,4 +191,4 @@ export const PRODUCTS: Product[] = [
 
 export const getProduct = (slug: string) => PRODUCTS.find((p) => p.slug === slug)
 
-export const PRICE_NOTE = 'Recommended retail price as listed on puredent.co. Prices may vary by retailer.'
+export const PRICE_NOTE = 'Price per tube.'
